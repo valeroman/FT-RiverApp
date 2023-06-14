@@ -20,9 +20,9 @@ class HomeScreen extends StatelessWidget {
 class _HomeScreenView extends StatelessWidget {
 
   const _HomeScreenView();
-
   @override
   Widget build(BuildContext context) {
+
     return ListView(
       children: const [
 
@@ -30,7 +30,14 @@ class _HomeScreenView extends StatelessWidget {
           title: 'State Provider',
           subTitle: 'Un estado simple',
           location: '/state-provider',
+        ),
+
+         _CustomListTile(
+          title: 'Future Provider',
+          subTitle: 'Un simple Future + Family',
+          location: '/future-provider',
         )
+
 
       ],
     );
@@ -51,8 +58,11 @@ class _CustomListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final textStyle = Theme.of(context).textTheme.titleMedium;
+
     return ListTile(
-      title: Text(title),
+      title: Text(title, style: textStyle),
       subtitle: Text(subTitle),
       trailing: const Icon(Icons.arrow_forward_ios_rounded),
       onTap: () => context.push(location),
